@@ -1,5 +1,10 @@
 .section {
-  max-width: 68%;
-  border: 1px solid red;
-  margin: 0 auto;
+  width: 68%;
+  max-width: 880px;
+}
+
+@media (max-width: 320px) {
+  .section {
+    width: 88%;
+  }
 }

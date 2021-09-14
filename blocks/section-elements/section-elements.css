@@ -1,0 +1,9 @@
+.section-elements {
+  margin: 0 auto 66px;
+}
+
+@media (max-width: 320px) {
+  .section-elements {
+    margin-bottom: 48px;
+  }
+}

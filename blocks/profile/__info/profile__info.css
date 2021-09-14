@@ -1,0 +1,9 @@
+.profile__info {
+  width: max-content;
+}
+
+@media (max-width: 800px) {
+  .profile__info {
+    justify-self: center;
+  }
+}

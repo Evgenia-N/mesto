@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MESTO</title>
-    <link rel="stylesheet" href="./pages/index.css"/>
+    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="./images/favicon.jpg" type="image/x-icon">
   </head>
   <body class="page">
-      <header class="header section">
-      </header>
-      <main class="content">
-        <section class="profile section">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <p class="profile_subtitle">Исследователь океана</p>
-        </section>
-        <section class="elements section">
-        </section>
-      </main>
-      <footer class="footer section">
-      </footer>
+    <header class="header section-header">
+      <img src="./images/logo.svg" alt="Логотип_Mesto" class="header__logo">
+    </header>
+    <main class="content">
+      <section class="profile section section-profile">
+        <img src="./images/JacquesYvesCousteau.jpg" alt="Фото_Профиля" class="profile__pic">
+        <div class="profile__info">
+          <div class="profile__edit">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <div class="profile__edit-button"></div>
+          </div>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+        <div class="profile__add-button"></div>
+      </section>
+      <div class="elements section section-elements"></div>
+    </main>
+    <footer class="footer section section-footer"></footer>
     <script></script>
   </body>
 </html>

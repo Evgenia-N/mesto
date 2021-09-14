@@ -1,0 +1,9 @@
+.section-header {
+  margin: 45px auto 40px;
+}
+
+@media (max-width: 320px) {
+  .section-header {
+    margin: 28px auto 42px;
+  }
+}

@@ -1,0 +1,9 @@
+.section-profile {
+  margin: 0 auto 50px;
+}
+
+@media (max-width: 320px) {
+  .section-profile {
+    margin-bottom: 36px;
+  }
+}

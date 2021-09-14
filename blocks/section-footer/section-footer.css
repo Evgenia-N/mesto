@@ -1,0 +1,9 @@
+.section-footer {
+  margin: 0 auto 60px;
+}
+
+@media (max-width: 320px) {
+  .section-footer {
+    margin-bottom: 36px;
+  }
+}
