@@ -13,7 +13,7 @@
   }
 }
 
-@media (max-width: 588px) {
+@media (max-width: 579.5px) {
   .profile__add-button {
     background-image: url("../../../images/add-button-big.svg");
     background-size: contain;

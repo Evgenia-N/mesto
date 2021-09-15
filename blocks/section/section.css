@@ -1,10 +1,10 @@
 .section {
-  width: 68%;
+  width: 69%;
   max-width: 880px;
 }
 
 @media (max-width: 320px) {
   .section {
-    width: 88%;
+    width: 89%;
   }
 }

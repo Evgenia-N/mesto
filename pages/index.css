@@ -19,6 +19,11 @@
 
 @import url('../blocks/elements/elements.css');
 @import url('../blocks/section-elements/section-elements.css');
+@import url('../blocks/elements/__card/elements__card.css');
+@import url('../blocks/elements/__photo/elements__photo.css');
+@import url('../blocks/elements/__container/elements__container.css');
+@import url('../blocks/elements/__title/elements__title.css');
+@import url('../blocks/elements/__like-button/elements__like-button.css');
 
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/section-footer/section-footer.css');
