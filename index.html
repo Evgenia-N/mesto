@@ -14,26 +14,33 @@
     </header>
     <main class="content">
       <section class="profile section section-profile">
-        <img src="./images/JacquesYvesCousteau.jpg" alt="Фото_Профиля" class="profile__pic">
+        <img src="./images/JacquesYvesCousteau.jpg" alt="Фото профиля" class="profile__pic">
         <div class="profile__info">
-          <div class="profile__edit">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <div class="profile__edit-button"></div>
-          </div>
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <div class="profile__add-button"></div>
+        <button class="profile__add-button" type="button"></button>
       </section>
       <section class="elements section section-elements">
-        <div class="elements__card"><img class="elements__photo" src="./images/Venice-1.jpg" alt="Гондольеры и прогулочные катера проплывают под мостом в Венеции."><div class="elements__container"><h2 class="elements__title">Венеция</h2><div class="elements__like-button"></div></div></div>
-        <div class="elements__card"><img class="elements__photo" src="./images/Vatican.jpg" alt="Мост Святого Ангела в Риме, путь в Ватикан."><div class="elements__container"><h2 class="elements__title">Ватикан</h2><div class="elements__like-button"></div></div></div>
-        <div class="elements__card"><img class="elements__photo" src="./images/Venice-2.jpg" alt="Гондольеры плывут по каналам в Венеции."><div class="elements__container"><h2 class="elements__title">Венеция</h2><div class="elements__like-button"></div></div></div>
-        <div class="elements__card"><img class="elements__photo" src="./images/Tuskany.jpg" alt="Деревья на тосканских полях."><div class="elements__container"><h2 class="elements__title">Тоскана</h2><div class="elements__like-button"></div></div></div>
-        <div class="elements__card"><img class="elements__photo" src="./images/Firenze.jpg" alt="Флоренция, собор Санта-Мария-дель-Фьоре."><div class="elements__container"><h2 class="elements__title">Флоренция</h2><div class="elements__like-button"></div></div></div>
-        <div class="elements__card"><img class="elements__photo" src="./images/Rome.jpg" alt="Витториано, памятник первому королю объединённой Италии Виктора Эммануила II в Риме."><div class="elements__container"><h2 class="elements__title">Рим</h2><div class="elements__like-button"></div></div></div>
+        <div class="elements__card"><img class="elements__photo" src="./images/Venice-1.jpg" alt="Гондольеры и прогулочные катера проплывают под мостом в Венеции."><div class="elements__container"><h2 class="elements__title">Венеция</h2><button class="elements__like-button"></button></div></div>
+        <div class="elements__card"><img class="elements__photo" src="./images/Vatican.jpg" alt="Мост Святого Ангела в Риме, путь в Ватикан."><div class="elements__container"><h2 class="elements__title">Ватикан</h2><button class="elements__like-button"></button></div></div>
+        <div class="elements__card"><img class="elements__photo" src="./images/Venice-2.jpg" alt="Гондольеры плывут по каналам в Венеции."><div class="elements__container"><h2 class="elements__title">Венеция</h2><button class="elements__like-button"></button></div></div>
+        <div class="elements__card"><img class="elements__photo" src="./images/Tuskany.jpg" alt="Деревья на тосканских полях."><div class="elements__container"><h2 class="elements__title">Тоскана</h2><button class="elements__like-button"></button></div></div>
+        <div class="elements__card"><img class="elements__photo" src="./images/Firenze.jpg" alt="Флоренция, собор Санта-Мария-дель-Фьоре."><div class="elements__container"><h2 class="elements__title">Флоренция</h2><button class="elements__like-button"></button></div></div>
+        <div class="elements__card"><img class="elements__photo" src="./images/Rome.jpg" alt="Витториано, памятник первому королю объединённой Италии Виктора Эммануила II в Риме."><div class="elements__container"><h2 class="elements__title">Рим</h2><button class="elements__like-button"></button></div></div>
       </section>
     </main>
     <footer class="footer section section-footer">&copy; 2021 Mesto Russia</footer>
+    <div class="popup">
+      <form class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input class="popup__text popup__text_type_name" type="text" name="name" value="Жак-Ив Кусто">
+        <input class="popup__text popup__text_type_about-self" type="text" name="about-self" value="Исследователь океана">
+        <input class="popup__save-button" type="submit" value="Сохранить">
+      </form>
+    </div>
     <script></script>
   </body>
 </html>
