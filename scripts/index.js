@@ -1,11 +1,17 @@
 let popup = document.querySelector(".popup");
 let popupOpen = document.querySelector(".profile__edit-button");
 let popupClose = popup.querySelector(".popup__close-button");
-let formElement = document.querySelector(".popup__container");
+let formElement = document.querySelector(".popup__form");
 let profName = document.querySelector(".profile__title");
 let profJob = document.querySelector(".profile__subtitle");
-let nameInput = formElement.querySelector(".popup__field-name");
-let jobInput = formElement.querySelector(".popup__field-about-self");
+let nameInput = formElement.querySelector(".popup__input_type_name");
+let jobInput = formElement.querySelector(".popup__input_type_about-self");
+
+function clickOverlay(event) {
+  if (event.target === event.currentTarget) {
+    popupToggle();
+  }
+}
 
 function popupToggle() {
   if (popup.classList.contains("popup_opened") === false) {
@@ -14,12 +20,6 @@ function popupToggle() {
     jobInput.value = profJob.textContent;
   } else {
     popup.classList.remove("popup_opened");
-  }
-}
-
-function clickOverlay(event) {
-  if (event.target === event.currentTarget) {
-    popupToggle();
   }
 }
 
