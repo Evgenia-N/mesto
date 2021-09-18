@@ -1,9 +1,9 @@
-.section-header {
+.section_place_header {
   margin: 45px auto 40px;
 }
 
 @media (max-width: 320px) {
-  .section-header {
+  .section_place_header {
     margin: 28px auto 42px;
   }
 }

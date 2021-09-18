@@ -1,9 +1,9 @@
-.section-footer {
+.section_place_footer {
   margin: 0 auto 60px;
 }
 
 @media (max-width: 320px) {
-  .section-footer {
+  .section_place_footer {
     margin-bottom: 36px;
   }
 }
