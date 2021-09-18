@@ -1,9 +1,9 @@
-.section_place_header {
+.header_box-position_offset {
   margin: 45px auto 40px;
 }
 
 @media (max-width: 320px) {
-  .section_place_header {
+  .header_box-position_offset {
     margin: 28px auto 42px;
   }
 }

@@ -7,12 +7,6 @@ let profJob = document.querySelector(".profile__subtitle");
 let nameInput = formElement.querySelector(".popup__input_type_name");
 let jobInput = formElement.querySelector(".popup__input_type_about-self");
 
-function clickOverlay(event) {
-  if (event.target === event.currentTarget) {
-    popupToggle();
-  }
-}
-
 function popupToggle() {
   if (popup.classList.contains("popup_opened") === false) {
     popup.classList.add("popup_opened");
@@ -20,6 +14,12 @@ function popupToggle() {
     jobInput.value = profJob.textContent;
   } else {
     popup.classList.remove("popup_opened");
+  }
+}
+
+function clickOverlay(event) {
+  if (event.target === event.currentTarget) {
+    popupToggle();
   }
 }
 

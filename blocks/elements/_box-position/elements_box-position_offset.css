@@ -1,9 +1,9 @@
-.section_place_elements {
+.elements_box-position_offset {
   margin: 0 auto 66px;
 }
 
 @media (max-width: 320px) {
-  .section_place_elements {
+  .elements_box-position_offset {
     margin-bottom: 48px;
   }
 }
