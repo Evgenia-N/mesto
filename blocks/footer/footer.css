@@ -1,5 +1,5 @@
 .footer {
-  font-family: "Inter";
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -7,7 +7,7 @@
   letter-spacing: 0em;
   text-align: left;
   color: #545454;
-  text-shadow: -1px 0 0 #545454, 0 -1px 0 #545454, 1px 0 0 #545454, 0 1px 0 #545454;
+  flex-shrink: 0;
 }
 
 @media (max-width: 320px) {

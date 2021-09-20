@@ -1,8 +1,9 @@
 .header {
   width: 69%;
   max-width: 880px;
-  border-bottom: 1px solid #545454;
+  border-bottom: 1px solid rgba(84,84,84,0.7);
   font-size: 0;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 @media (max-width: 320px) {

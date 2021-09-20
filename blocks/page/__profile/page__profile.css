@@ -1,9 +1,9 @@
-.profile_box-position_offset {
+.page__profile {
   margin: 0 auto 50px;
 }
 
 @media (max-width: 320px) {
-  .profile_box-position_offset {
+  .page__profile {
     margin-bottom: 36px;
   }
 }

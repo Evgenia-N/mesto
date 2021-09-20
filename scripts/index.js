@@ -8,7 +8,7 @@ let nameInput = formElement.querySelector(".popup__input_type_name");
 let jobInput = formElement.querySelector(".popup__input_type_about-self");
 
 function popupToggle() {
-  if (popup.classList.contains("popup_opened") === false) {
+  if (!popup.classList.contains("popup_opened")) {
     popup.classList.add("popup_opened");
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
@@ -28,11 +28,3 @@ function formSubmitHandler(evt) {
 }
 
 formElement.addEventListener("submit", formSubmitHandler);
-
-function clickOverlay(event) {
-  if (event.target === event.currentTarget) {
-    popupToggle();
-  }
-}
-
-popup.addEventListener("click", clickOverlay);

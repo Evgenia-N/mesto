@@ -1,9 +1,9 @@
-.elements_box-position_offset {
+.page__elements {
   margin: 0 auto 66px;
 }
 
 @media (max-width: 320px) {
-  .elements_box-position_offset {
+  .page__elements {
     margin-bottom: 48px;
   }
 }

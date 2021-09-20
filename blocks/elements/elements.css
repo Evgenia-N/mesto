@@ -1,8 +1,9 @@
 .elements {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     font-size: 0;
     display: grid;
     column-gap: 17px;
     row-gap: 20px;
-    grid-template-columns: repeat(auto-fit, 282px);
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
     justify-content: center;
 }
