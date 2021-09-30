@@ -1,18 +1,3 @@
-const popup = document.querySelector(".popup");
-const popupOpenBtn = document.querySelector(".profile__edit-button");
-const popupCloseBtn = popup.querySelector(".popup__close-button");
-const formElement = document.querySelector(".popup__form");
-const profileName = document.querySelector(".profile__title");
-const profileJob = document.querySelector(".profile__subtitle");
-const nameInput = formElement.querySelector(".popup__input_type_name");
-const jobInput = formElement.querySelector(".popup__input_type_about-self");
-
-const elements = document.querySelector(".elements");
-const cardTemplateItem = document.querySelector(".card-template");
-
-const popupFullscreenImage = document.querySelector(".popup_type_fullscreen");
-const popupCloseImageBtn = popupFullscreenImage.querySelector(".popup__close-button");
-
 const initialCards = [
   {
     name: "Москва",
@@ -46,15 +31,33 @@ const initialCards = [
   },
 ];
 
-initialCards.reverse();
+const popupEditProfile = document.querySelector(".popup_type_edit-profile");
+const popupOpenBtn = document.querySelector(".profile__edit-button");
+const popupCloseBtn = popupEditProfile.querySelector(".popup__close-button");
+
+const formElement = document.querySelector(".popup__form");
+const profileName = document.querySelector(".profile__title");
+const profileJob = document.querySelector(".profile__subtitle");
+const nameInput = formElement.querySelector(".popup__input_type_name");
+const jobInput = formElement.querySelector(".popup__input_type_about-self");
+
+const elements = document.querySelector(".elements");
+const cardTemplateItem = document.querySelector(".card-template");
+const popupAddImage = document.querySelector(".popup_type_add-image");
+const containerElement = document.querySelector(".popup__container_type_add-image");
+const popupAddImageOpen = document.querySelector(".profile__add-button");
+const popupAddImageClose = popupAddImage.querySelector(".popup__close-button");
+
+const popupFullscreenImage = document.querySelector(".popup_type_fullscreen");
+const popupCloseImageBtn = popupFullscreenImage.querySelector(".popup__close-button");
 
 function popupToggle() {
-  if (!popup.classList.contains("popup_opened")) {
-    popup.classList.add("popup_opened");
+  if (!popupEditProfile.classList.contains("popup_opened")) {
+    popupEditProfile.classList.add("popup_opened");
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
   } else {
-    popup.classList.remove("popup_opened");
+    popupEditProfile.classList.remove("popup_opened");
   }
 }
 
@@ -65,9 +68,8 @@ function formSubmitHandler(evt) {
   popupToggle();
 }
 
-function addNewCard(item) {
+function createCard(item) {
   const card = cardTemplateItem.content.cloneNode(true);
-
   card.querySelector(".elements__photo").src = item.link;
   card.querySelector(".elements__photo").alt = item.alt;
   card.querySelector(".elements__title").textContent = item.name;
@@ -79,11 +81,35 @@ function addNewCard(item) {
   elements.prepend(card);
 }
 
-initialCards.map(addNewCard);
+initialCards.reverse();
+initialCards.map(createCard);
+
+function popupImageToggle() {
+  if (!popupAddImage.classList.contains("popup_opened")) {
+    popupAddImage.classList.add("popup_opened");
+
+  } else {
+    popupAddImage.classList.remove("popup_opened");
+  }
+}
+
+function addCard(evt) {
+  evt.preventDefault();
+
+  const addCard = {};
+  addCard.name = evt.currentTarget.querySelector(".popup__input_type_place").value;
+  addCard.link = evt.currentTarget.querySelector(".popup__input_type_url").value;
+
+  createCard(addCard);
+  popupImageToggle();
+
+  evt.currentTarget.querySelector(".popup__input_type_place").value = "";
+  evt.currentTarget.querySelector(".popup__input_type_url").value = "";
+}
 
 function deleteCard(evt) {
-  const elementsItem = evt.currentTarget.closest(".elements__card");
-  elementsItem.remove();
+  const elementsCard = evt.currentTarget.closest(".elements__card");
+  elementsCard.remove();
 }
 
 function popupFullscreen(evt) {
@@ -99,5 +125,8 @@ function closeImage() {
 
 popupOpenBtn.addEventListener("click", popupToggle);
 popupCloseBtn.addEventListener("click", popupToggle);
+popupAddImageOpen.addEventListener("click", popupImageToggle);
+popupAddImageClose.addEventListener("click", popupImageToggle);
+containerElement.addEventListener("submit", addCard);
 formElement.addEventListener("submit", formSubmitHandler);
 popupCloseImageBtn.addEventListener("click", closeImage);

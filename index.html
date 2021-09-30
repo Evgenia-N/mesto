@@ -38,7 +38,17 @@
                 </form>
             </div>
         </div>
-        <div class="popup popup_type_add-image"></div>
+        <div class="popup popup_type_add-image">
+          <div class="popup__container popup__container_type_add-image">
+            <button class="popup__close-button" type="submit" aria-label="Закрыть окно"></button>
+            <form class="popup__form" name="edit-profile" action="#" method="post">
+                <h2 class="popup__title popup__title_type_add-image">Новое место</h2>
+                <input class="popup__input popup__input_type_place" type="text" name="name" placeholder="Название" required />
+                <input class="popup__input popup__input_type_url" type="text" name="about-self" placeholder="Ссылка на картинку" required />
+                <button class="popup__save-button" type="submit">Создать</button>
+            </form>
+          </div>
+        </div>
         <div class="popup popup_type_fullscreen">
           <div class="popup__fullscreen">
             <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
