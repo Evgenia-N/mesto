@@ -73,11 +73,10 @@ function createCard(item) {
   card.querySelector(".elements__photo").src = item.link;
   card.querySelector(".elements__photo").alt = item.alt;
   card.querySelector(".elements__title").textContent = item.name;
-  card.querySelector(".elements__like-button").addEventListener("click", function (evt) {
-    evt.target.classList.toggle("elements__like-button_active");
-    });
+  card.querySelector(".elements__like-button").addEventListener("click", pressLike);
   card.querySelector(".elements__delete-button").addEventListener("click", deleteCard);
   card.querySelector(".elements__photo").addEventListener("click", popupFullscreen);
+
   elements.prepend(card);
 }
 
@@ -87,7 +86,6 @@ initialCards.map(createCard);
 function popupImageToggle() {
   if (!popupAddImage.classList.contains("popup_opened")) {
     popupAddImage.classList.add("popup_opened");
-
   } else {
     popupAddImage.classList.remove("popup_opened");
   }
@@ -96,7 +94,7 @@ function popupImageToggle() {
 function addCard(evt) {
   evt.preventDefault();
 
-  const addCard = {};
+  const addCard = [];
   addCard.name = evt.currentTarget.querySelector(".popup__input_type_place").value;
   addCard.link = evt.currentTarget.querySelector(".popup__input_type_url").value;
 
@@ -112,6 +110,10 @@ function deleteCard(evt) {
   elementsCard.remove();
 }
 
+function pressLike(evt) {
+  evt.target.classList.toggle("elements__like-button_active");
+}
+
 function popupFullscreen(evt) {
   popupFullscreenImage.classList.add("popup_opened");
   popupFullscreenImage.querySelector(".popup__image").src = evt.currentTarget.src;
@@ -125,8 +127,8 @@ function closeImage() {
 
 popupOpenBtn.addEventListener("click", popupToggle);
 popupCloseBtn.addEventListener("click", popupToggle);
+formElement.addEventListener("submit", formSubmitHandler);
 popupAddImageOpen.addEventListener("click", popupImageToggle);
 popupAddImageClose.addEventListener("click", popupImageToggle);
 containerElement.addEventListener("submit", addCard);
-formElement.addEventListener("submit", formSubmitHandler);
 popupCloseImageBtn.addEventListener("click", closeImage);
