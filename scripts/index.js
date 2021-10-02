@@ -49,7 +49,7 @@ function createCard(item) {
   card.querySelector(".elements__title").textContent = item.name;
   card.querySelector(".elements__like-button").addEventListener("click", pressLike);
   card.querySelector(".elements__delete-button").addEventListener("click", deleteCard);
-  card.querySelector(".elements__photo").addEventListener("click", clickPopupFullscreen);
+  card.querySelector(".elements__photo").addEventListener("click", openPopupFullscreen);
   return card;
 }
 
@@ -77,7 +77,7 @@ function pressLike(evt) {
   evt.target.classList.toggle("elements__like-button_active");
 }
 
-function clickPopupFullscreen(evt) {
+function openPopupFullscreen(evt) {
   openPopup(popupFullscreenImage);
   const popupImage = document.querySelector(".popup__image");
   const popupCaption = document.querySelector(".popup__caption");
@@ -85,7 +85,6 @@ function clickPopupFullscreen(evt) {
   popupImage.alt = evt.currentTarget.alt;
   popupCaption.textContent = evt.currentTarget.parentElement.querySelector(".elements__title").textContent;
 }
-
 
 initialCards.map(addInitialCard);
 
