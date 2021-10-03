@@ -69,8 +69,8 @@ function addInitialCard(item) {
 }
 
 function deleteCard(evt) {
-  const elementsCard = evt.currentTarget.closest(".elements__card");
-  elementsCard.remove();
+  const cardElement = evt.currentTarget.closest(".elements__card");
+  cardElement.remove();
 }
 
 function pressLike(evt) {
