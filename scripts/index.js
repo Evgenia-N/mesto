@@ -20,7 +20,6 @@ const urlInput = popupAddImage.querySelector(".popup__input_type_url");
 const popupFullscreenImage = document.querySelector(".popup_type_fullscreen");
 const popupCloseImageBtn = popupFullscreenImage.querySelector(".popup__close-button");
 
-
 function openPopup(popup) {
   popup.classList.add("popup_opened");
 }
@@ -60,7 +59,7 @@ function addCard(evt) {
   const newCard = createCard({ name: cardName, link: cardLink });
   elements.prepend(newCard);
   closePopup(popupAddImage);
-  event.target.reset();
+  evt.target.reset();
 }
 
 function addInitialCard(item) {
@@ -86,6 +85,14 @@ function openPopupFullscreen(evt) {
   popupCaption.textContent = evt.currentTarget.parentElement.querySelector(".elements__title").textContent;
 }
 
+function clickOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupEditProfile);
+    closePopup(popupAddImage);
+    closePopup(popupFullscreenImage);
+  }
+}
+
 initialCards.map(addInitialCard);
 
 popupEditProfileOpenBtn.addEventListener("click", openProfile);
@@ -95,3 +102,6 @@ popupAddImageCloseBtn.addEventListener("click", () => closePopup(popupAddImage))
 popupEditProfileForm.addEventListener("submit", submitEditProfileForm);
 popupAddImageForm.addEventListener("submit", addCard);
 popupCloseImageBtn.addEventListener("click", () => closePopup(popupFullscreenImage));
+popupEditProfile.addEventListener("click", clickOverlay);
+popupAddImage.addEventListener("click", clickOverlay);
+popupFullscreenImage.addEventListener("click", clickOverlay);
