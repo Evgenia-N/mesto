@@ -93,6 +93,14 @@ function clickOverlay(evt) {
   }
 }
 
+function pressEsc(evt) {
+  if (evt.key === 'Escape') {
+    closePopup(popupEditProfile);
+    closePopup(popupAddImage);
+    closePopup(popupFullscreenImage);
+  }
+}
+
 initialCards.map(addInitialCard);
 
 popupEditProfileOpenBtn.addEventListener("click", openProfile);
@@ -105,3 +113,4 @@ popupCloseImageBtn.addEventListener("click", () => closePopup(popupFullscreenIma
 popupEditProfile.addEventListener("click", clickOverlay);
 popupAddImage.addEventListener("click", clickOverlay);
 popupFullscreenImage.addEventListener("click", clickOverlay);
+document.addEventListener("keydown", pressEsc);
