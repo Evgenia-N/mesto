@@ -22,10 +22,12 @@ const popupCloseImageBtn = popupFullscreenImage.querySelector(".popup__close-but
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keydown", pressEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", pressEsc);
 }
 
 function openProfile() {
@@ -113,4 +115,3 @@ popupCloseImageBtn.addEventListener("click", () => closePopup(popupFullscreenIma
 popupEditProfile.addEventListener("click", clickOverlay);
 popupAddImage.addEventListener("click", clickOverlay);
 popupFullscreenImage.addEventListener("click", clickOverlay);
-document.addEventListener("keydown", pressEsc);
