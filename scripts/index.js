@@ -89,17 +89,15 @@ function openPopupFullscreen(evt) {
 
 function clickOverlay(evt) {
   if (evt.target === evt.currentTarget) {
-    closePopup(popupEditProfile);
-    closePopup(popupAddImage);
-    closePopup(popupFullscreenImage);
+    const popupActive = document.querySelector(".popup_opened");
+    closePopup(popupActive);
   }
 }
 
 function pressEsc(evt) {
   if (evt.key === 'Escape') {
-    closePopup(popupEditProfile);
-    closePopup(popupAddImage);
-    closePopup(popupFullscreenImage);
+    const popupActive = document.querySelector(".popup_opened");
+    closePopup(popupActive);
   }
 }
 
