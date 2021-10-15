@@ -46,8 +46,8 @@ const setEventListeners = (formElement, config) => {
     evt.preventDefault();
   });
   formElement.addEventListener("reset", (evt) => {
-  toggleButtonState(submitButton, isFormValid, config);
-	});
+    toggleButtonState(submitButton, isFormValid, config);
+  });
 };
 
 const enableValidation = (config) => {
