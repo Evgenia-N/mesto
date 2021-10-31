@@ -22,13 +22,13 @@ const urlInput = popupAddImage.querySelector(".popup__input_type_url");
 const popupFullscreenImage = document.querySelector(".popup_type_fullscreen");
 const popupCloseImageBtn = popupFullscreenImage.querySelector(".popup__close-button");
 const editProfileFormValidator = new FormValidator(validationConfig, popupEditProfile);
+editProfileFormValidator.enableValidation();
 const addImageFormValidator = new FormValidator(validationConfig, popupAddImage);
+addImageFormValidator.enableValidation();
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", pressEsc);
-  editProfileFormValidator.resetValidation();
-  addImageFormValidator.resetValidation();
 }
 
 function closePopup(popup) {
@@ -40,6 +40,7 @@ function openProfile() {
   openPopup(popupEditProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  editProfileFormValidator.resetValidation();
 }
 
 function submitEditProfileForm(evt) {
@@ -47,6 +48,11 @@ function submitEditProfileForm(evt) {
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
   closePopup(popupEditProfile);
+}
+
+function openCard() {
+  openPopup(popupAddImage);
+  addImageFormValidator.resetValidation();
 }
 
 function createCard(item) {
@@ -85,12 +91,10 @@ function pressEsc(evt) {
 }
 
 initialCards.map(addInitialCard);
-editProfileFormValidator.enableValidation();
-addImageFormValidator.enableValidation();
 
 popupEditProfileOpenBtn.addEventListener("click", openProfile);
 popupEditProfileCloseBtn.addEventListener("click", () => closePopup(popupEditProfile));
-popupAddImageOpenBtn.addEventListener("click", () => openPopup(popupAddImage));
+popupAddImageOpenBtn.addEventListener("click", openCard);
 popupAddImageCloseBtn.addEventListener("click", () => closePopup(popupAddImage));
 popupEditProfileForm.addEventListener("submit", submitEditProfileForm);
 popupAddImageForm.addEventListener("submit", addCard);
