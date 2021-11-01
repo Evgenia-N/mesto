@@ -37,13 +37,13 @@ export class FormValidator {
     }
   }
 
-  _toggleButtonState(isActive) {
+  _toggleButtonState(button, isActive) {
     if (isActive) {
-      this._submitButton.classList.remove(this._inactiveButtonClass);
-      this._submitButton.removeAttribute("disabled");
+      button.classList.remove(this._inactiveButtonClass);
+      button.removeAttribute("disabled");
     } else {
-      this._submitButton.classList.add(this._inactiveButtonClass);
-      this._submitButton.setAttribute("disabled", "true");
+      button.classList.add(this._inactiveButtonClass);
+      button.setAttribute("disabled", "true");
     }
   };
 
@@ -64,7 +64,6 @@ export class FormValidator {
   }
 
   resetValidation() {
-    this._toggleButtonState();
     this._inputList.forEach((inputElement) => {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
     this._hideError(inputElement, errorElement);
