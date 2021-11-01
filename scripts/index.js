@@ -3,9 +3,9 @@ import { initialCards } from './cards.js';
 import { FormValidator, validationConfig} from './FormValidator.js';
 
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
+const popupEditProfileForm = popupEditProfile.querySelector(".popup__form");
 const popupEditProfileOpenBtn = document.querySelector(".profile__edit-button");
 const popupEditProfileCloseBtn = popupEditProfile.querySelector(".popup__close-button");
-const popupEditProfileForm = popupEditProfile.querySelector(".popup__form");
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__subtitle");
 const nameInput = popupEditProfileForm.querySelector(".popup__input_type_name");
@@ -21,9 +21,9 @@ const placeInput = popupAddImage.querySelector(".popup__input_type_place");
 const urlInput = popupAddImage.querySelector(".popup__input_type_url");
 const popupFullscreenImage = document.querySelector(".popup_type_fullscreen");
 const popupCloseImageBtn = popupFullscreenImage.querySelector(".popup__close-button");
-const editProfileFormValidator = new FormValidator(validationConfig, popupEditProfile);
+const editProfileFormValidator = new FormValidator(validationConfig, popupEditProfileForm);
+const addImageFormValidator = new FormValidator(validationConfig, popupAddImageForm);
 editProfileFormValidator.enableValidation();
-const addImageFormValidator = new FormValidator(validationConfig, popupAddImage);
 addImageFormValidator.enableValidation();
 
 function openPopup(popup) {
