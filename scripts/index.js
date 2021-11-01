@@ -38,9 +38,9 @@ function closePopup(popup) {
 
 function openProfile() {
   openPopup(popupEditProfile);
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
   editProfileFormValidator.resetValidation();
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;  
 }
 
 function submitEditProfileForm(evt) {
