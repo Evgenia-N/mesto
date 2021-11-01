@@ -74,7 +74,8 @@ export class FormValidator {
   resetValidation() {
     this._inputList.forEach((inputElement) => {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-    this._hideError(inputElement, errorElement);
+    this._hideError(errorElement, inputElement);
+    inputElement.value = "";
     });
   }
 }
