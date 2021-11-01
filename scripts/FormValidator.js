@@ -59,6 +59,9 @@ export class FormValidator {
         this._toggleButtonState(submitButton, isFormValid);
       });
     });
+    this._formElement.addEventListener("reset", () => {
+      this._toggleButtonState(submitButton, isFormValid);
+    });
   };
 
   enableValidation() {
