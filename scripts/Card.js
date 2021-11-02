@@ -1,10 +1,12 @@
+import { openPopupFullscreen } from './index.js'
+
 export default class Card {
-  constructor(data, cardSelector, openPopup) {
+  constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._description = data.alt;
     this._cardSelector = cardSelector;
-    this._openPopup = openPopup;
+    this._openPopupFullscreen = openPopupFullscreen;
   }
 
   _getTemplate() {
@@ -43,15 +45,5 @@ export default class Card {
 
   _deleteCard() {
     this._cardElement.remove();
-  }
-
-  _openPopupFullscreen() {
-    const popupFullscreenImage = document.querySelector(".popup_type_fullscreen");
-    const popupImage = document.querySelector(".popup__image");
-    const popupCaption = document.querySelector(".popup__caption");
-    popupImage.src = this._link;
-    popupImage.alt = this._description || this._name;
-    popupCaption.textContent = this._name;
-    this._openPopup(popupFullscreenImage);
   }
 }

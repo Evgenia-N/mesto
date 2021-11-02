@@ -2,6 +2,8 @@ import Card from './Card.js';
 import { initialCards } from './cards.js';
 import { FormValidator, validationConfig} from './FormValidator.js';
 
+export { openPopupFullscreen };
+
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
 const popupEditProfileForm = popupEditProfile.querySelector(".popup__form");
 const popupEditProfileOpenBtn = document.querySelector(".profile__edit-button");
@@ -20,7 +22,10 @@ const popupAddImageCloseBtn = popupAddImage.querySelector(".popup__close-button"
 const placeInput = popupAddImage.querySelector(".popup__input_type_place");
 const urlInput = popupAddImage.querySelector(".popup__input_type_url");
 const popupFullscreenImage = document.querySelector(".popup_type_fullscreen");
+const popupImage = document.querySelector(".popup__image");
+const popupCaption = document.querySelector(".popup__caption");
 const popupCloseImageBtn = popupFullscreenImage.querySelector(".popup__close-button");
+
 const editProfileFormValidator = new FormValidator(validationConfig, popupEditProfileForm);
 const addImageFormValidator = new FormValidator(validationConfig, popupAddImageForm);
 editProfileFormValidator.enableValidation();
@@ -87,6 +92,13 @@ function pressEsc(evt) {
     const popupActive = document.querySelector(".popup_opened");
     closePopup(popupActive);
   }
+}
+
+function openPopupFullscreen(name, link, alt) {
+  popupCaption.textContent = name;
+  popupImage.src = link;
+  popupImage.alt = alt;
+  openPopup(popupFullscreenImage);
 }
 
 initialCards.map(addInitialCard);
