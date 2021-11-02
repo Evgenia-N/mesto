@@ -97,7 +97,7 @@ function pressEsc(evt) {
 function openPopupFullscreen(name, link, alt) {
   popupCaption.textContent = name;
   popupImage.src = link;
-  popupImage.alt = alt;
+  popupImage.alt = alt || name;
   openPopup(popupFullscreenImage);
 }
 
