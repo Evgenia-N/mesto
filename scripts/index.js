@@ -78,8 +78,7 @@ function addInitialCard(item) {
 
 function clickOverlay(evt) {
   if (evt.target === evt.currentTarget) {
-    const popupActive = document.querySelector(".popup_opened");
-    closePopup(popupActive);
+    closePopup(evt.currentTarget);
   }
 }
 
