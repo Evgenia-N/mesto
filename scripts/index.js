@@ -4,10 +4,10 @@ import { FormValidator, validationConfig} from './FormValidator.js';
 
 export { openPopupFullscreen };
 
+const popups = document.querySelectorAll(".popup")
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
 const popupEditProfileForm = popupEditProfile.querySelector(".popup__form");
 const popupEditProfileOpenBtn = document.querySelector(".profile__edit-button");
-const popupEditProfileCloseBtn = popupEditProfile.querySelector(".popup__close-button");
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__subtitle");
 const nameInput = popupEditProfileForm.querySelector(".popup__input_type_name");
@@ -18,18 +18,14 @@ const elements = document.querySelector(".elements");
 const popupAddImage = document.querySelector(".popup_type_add-image");
 const popupAddImageForm = popupAddImage.querySelector(".popup__form");
 const popupAddImageOpenBtn = document.querySelector(".profile__add-button");
-const popupAddImageCloseBtn = popupAddImage.querySelector(".popup__close-button");
 const placeInput = popupAddImage.querySelector(".popup__input_type_place");
 const urlInput = popupAddImage.querySelector(".popup__input_type_url");
 const popupFullscreenImage = document.querySelector(".popup_type_fullscreen");
 const popupImage = document.querySelector(".popup__image");
 const popupCaption = document.querySelector(".popup__caption");
-const popupCloseImageBtn = popupFullscreenImage.querySelector(".popup__close-button");
 
 const editProfileFormValidator = new FormValidator(validationConfig, popupEditProfileForm);
 const addImageFormValidator = new FormValidator(validationConfig, popupAddImageForm);
-editProfileFormValidator.enableValidation();
-addImageFormValidator.enableValidation();
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -81,12 +77,6 @@ function addInitialCard(item) {
   elements.append(initialCard);
 }
 
-function clickOverlay(evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup(evt.currentTarget);
-  }
-}
-
 function pressEsc(evt) {
   if (evt.key === 'Escape') {
     const popupActive = document.querySelector(".popup_opened");
@@ -103,13 +93,21 @@ function openPopupFullscreen(name, link, alt) {
 
 initialCards.map(addInitialCard);
 
+editProfileFormValidator.enableValidation();
+addImageFormValidator.enableValidation();
+
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup_opened')) {
+          closePopup(popup)
+      }
+      if (evt.target.classList.contains('popup__close-button')) {
+        closePopup(popup)
+      }
+  })
+})
+
 popupEditProfileOpenBtn.addEventListener("click", openProfile);
-popupEditProfileCloseBtn.addEventListener("click", () => closePopup(popupEditProfile));
 popupAddImageOpenBtn.addEventListener("click", openCard);
-popupAddImageCloseBtn.addEventListener("click", () => closePopup(popupAddImage));
 popupEditProfileForm.addEventListener("submit", submitEditProfileForm);
 popupAddImageForm.addEventListener("submit", addCard);
-popupCloseImageBtn.addEventListener("click", () => closePopup(popupFullscreenImage));
-popupEditProfile.addEventListener("click", clickOverlay);
-popupAddImage.addEventListener("click", clickOverlay);
-popupFullscreenImage.addEventListener("click", clickOverlay);
