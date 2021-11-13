@@ -1,12 +1,10 @@
-import { openPopupFullscreen } from './index.js'
-
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor({data, handleCardClick}, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._description = data.alt;
     this._cardSelector = cardSelector;
-    this._openPopupFullscreen = openPopupFullscreen;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -27,6 +25,14 @@ export default class Card {
     return this._cardElement;
   }
 
+  _pressLike() {
+    this._cardElementLike.classList.toggle('elements__like-button_active');
+  }
+
+  _deleteCard() {
+    this._cardElement.remove();
+  }
+
   _setEventListeners() {
     this._cardElementLike.addEventListener('click', () => {
       this._pressLike();
@@ -35,15 +41,7 @@ export default class Card {
       this._deleteCard();
     });
     this._cardElementPhoto.addEventListener('click', () => {
-      this._openPopupFullscreen(this._name, this._link, this._description);
+      this._handleCardClick(this._name, this._link, this._description);
     });
-  }
-
-  _pressLike() {
-    this._cardElementLike.classList.toggle('elements__like-button_active');
-  }
-
-  _deleteCard() {
-    this._cardElement.remove();
   }
 }
