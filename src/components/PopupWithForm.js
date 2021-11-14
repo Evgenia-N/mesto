@@ -1,9 +1,11 @@
 import Popup from '../components/Popup.js'
+import { profileName, profileJob, nameInput, jobInput } from '../pages/index.js'
 
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, handleFormSubmit) {
+  constructor({popupSelector, handleFormSubmit}) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
+    this._form = this._popupSelector.querySelector(".popup__form");
   }
 
   _getInputValues() {
@@ -17,11 +19,13 @@ export default class PopupWithForm extends Popup {
 
   openPopup() {
     super.openPopup();
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent; 
   }
 
   closePopup() {
     super.closePopup();
-    this._element.reset();
+    this._form.reset();
   }
 
   _handleEscClose(evt) {
@@ -30,10 +34,9 @@ export default class PopupWithForm extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._handleFormSubmit(this._getInputValues());
-    this._popupSelector.addEventListener("submit", handleFormSubmit(this._getInputValues()));
-    this._popupSelector.addEventListener('submit', (evt) => {
+    this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
+      this._handleFormSubmit(this._getInputValues());
     })
   }
 }
