@@ -1,5 +1,4 @@
 import Popup from '../components/Popup.js'
-import { profileName, profileJob, nameInput, jobInput } from '../pages/index.js'
 
 export default class PopupWithForm extends Popup {
   constructor({popupSelector, handleFormSubmit}) {
@@ -19,8 +18,6 @@ export default class PopupWithForm extends Popup {
 
   openPopup() {
     super.openPopup();
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent; 
   }
 
   closePopup() {

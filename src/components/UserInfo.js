@@ -1,19 +1,18 @@
 export default class UserInfo {
-  constructor({ profileName, profileJob }) {
-    this._profileName = profileName;
-    this._profileJob = profileJob;
-  }
-  getUserInfo() {
-  /*  const userInfo = {};
-  const nameInput = popupEditProfileForm.querySelector(".popup__input_type_name");
-  const jobInput = popupEditProfileForm.querySelector(".popup__input_type_about-self");
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent; 
-  return userInfo;*/
+  constructor({nameSelector, jobSelector}) {
+    this._nameSelector = nameSelector;
+    this._jobSelector = jobSelector;
   }
 
-  setUserInfo() {
-  this._profileName.textContent = nameInput.value;
-  this._profileJob.textContent = jobInput.value;
+  getUserInfo = () => {
+    return {
+      name: this._nameSelector.textContent,
+      job: this._jobSelector.textContent,
+    };
+  }
+
+  setUserInfo(newName, newJob) {
+    this._nameSelector.textContent = newName;
+    this._jobSelector.textContent = newJob;
   }
 }

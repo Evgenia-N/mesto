@@ -32,12 +32,13 @@ const popupCaption = document.querySelector(".popup__caption");
 
 const editProfileFormValidator = new FormValidator(validationConfig, popupEditProfileForm);
 const addImageFormValidator = new FormValidator(validationConfig, popupAddImageForm);
+const userInfo = new UserInfo ({nameSelector: profileName, jobSelector: profileJob});
+userInfo.setUserInfo(nameInput.value, jobInput.value);
 
 const editProfilePopup = new PopupWithForm (
   {popupSelector: popupEditProfile, 
   handleFormSubmit: () => {
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
+  userInfo.setUserInfo(nameInput.value, jobInput.value);
   editProfilePopup.closePopup();
   }
 });
@@ -59,6 +60,9 @@ addCardPopup.setEventListeners();
 const openProfile = () => {
   editProfileFormValidator.resetValidation();
   editProfilePopup.openPopup();
+  const userData = userInfo.getUserInfo();
+  nameInput.value = userData.name;
+  jobInput.value = userData.job;
 }
 
 const openCard = () => {
