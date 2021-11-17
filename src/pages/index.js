@@ -3,7 +3,6 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-import { initialCards } from "../components/cards.js";
 import {
   FormValidator,
   validationConfig,
@@ -25,6 +24,7 @@ import {
   popupFullscreenImage,
   popupImage,
   popupCaption,
+  initialCards
 } from "../utils/constants.js";
 
 import "./index.css";
@@ -32,7 +32,8 @@ import "./index.css";
 const editProfileFormValidator = new FormValidator(validationConfig, popupEditProfileForm);
 const addImageFormValidator = new FormValidator(validationConfig, popupAddImageForm);
 
-const userInfo = new UserInfo({nameSelector: profileName, jobSelector: profileJob});
+const userInfo = new UserInfo({nameElem: profileName, jobElem: profileJob});
+const popupWithImage = new PopupWithImage(popupFullscreenImage);
 
 const cards = new Section(
   {
@@ -50,9 +51,7 @@ const addNewCard = (item) => {
     {
       data: item,
       handleCardClick: (name, link, alt) => {
-        const popupWithImage = new PopupWithImage(popupFullscreenImage);
         popupWithImage.openPopup();
-        popupWithImage.setEventListeners();
         popupCaption.textContent = name;
         popupImage.src = link;
         popupImage.alt = alt || name;
@@ -78,18 +77,17 @@ const openCard = () => {
 };
 
 const editProfilePopup = new PopupWithForm({
-  popupSelector: popupEditProfile,
-  handleFormSubmit: () => {
-    userInfo.setUserInfo(nameInput.value, jobInput.value);
+  popup: popupEditProfile,
+  handleFormSubmit: (data) => {
+    userInfo.setUserInfo(data);
     editProfilePopup.closePopup();
   },
 });
 
 const addCardPopup = new PopupWithForm({
-  popupSelector: popupAddImage,
-  handleFormSubmit: () => {
-    const card = { name: placeInput.value, link: urlInput.value };
-    const newCard = addNewCard(card);
+  popup: popupAddImage,
+  handleFormSubmit: (data) => {
+    const newCard = addNewCard(data);
     cards.addItem(newCard);
     addCardPopup.closePopup();
   },
@@ -99,6 +97,7 @@ editProfilePopup.setEventListeners();
 addCardPopup.setEventListeners();
 
 cards.renderItems();
+popupWithImage.setEventListeners();
 userInfo.setUserInfo(nameInput.value, jobInput.value);
 
 editProfileFormValidator.enableValidation();
