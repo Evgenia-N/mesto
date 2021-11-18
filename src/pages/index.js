@@ -50,11 +50,11 @@ const addNewCard = (item) => {
   const card = new Card(
     {
       data: item,
-      handleCardClick: (name, link, alt) => {
+      handleCardClick: (place, link, alt) => {
         popupWithImage.openPopup();
-        popupCaption.textContent = name;
+        popupCaption.textContent = place;
         popupImage.src = link;
-        popupImage.alt = alt || name;
+        popupImage.alt = alt || place;
       },
     },
     ".card-template"
@@ -79,7 +79,7 @@ const openCard = () => {
 const editProfilePopup = new PopupWithForm({
   popup: popupEditProfile,
   handleFormSubmit: (data) => {
-    userInfo.setUserInfo(data);
+    userInfo.setUserInfo(data.name, data['about-self']);
     editProfilePopup.closePopup();
   },
 });
