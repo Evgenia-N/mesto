@@ -19,8 +19,6 @@ import {
   popupAddImage,
   popupAddImageForm,
   popupAddImageOpenBtn,
-  placeInput,
-  urlInput,
   popupFullscreenImage,
   popupImage,
   popupCaption,
@@ -51,10 +49,7 @@ const addNewCard = (item) => {
     {
       data: item,
       handleCardClick: (place, link, alt) => {
-        popupWithImage.openPopup();
-        popupCaption.textContent = place;
-        popupImage.src = link;
-        popupImage.alt = alt || place;
+        popupWithImage.openPopup(place, link, alt);
       },
     },
     ".card-template"
@@ -98,7 +93,6 @@ addCardPopup.setEventListeners();
 
 cards.renderItems();
 popupWithImage.setEventListeners();
-userInfo.setUserInfo(nameInput.value, jobInput.value);
 
 editProfileFormValidator.enableValidation();
 addImageFormValidator.enableValidation();
