@@ -30,8 +30,8 @@ import {
 } from "../utils/constants.js";
 
 import "./index.css";
-let userId;
 
+let userId;
 const editProfileFormValidator = new FormValidator(validationConfig, popupEditProfileForm);
 const addImageFormValidator = new FormValidator(validationConfig, popupAddImageForm);
 const editProfilePicFormValidator = new FormValidator(validationConfig, popupEditProfilePicForm);
@@ -167,7 +167,7 @@ const confirmDeletionPopup = new PopupWithConfirmation(popupDeleteCard, {
   confirmDelete: (cardId, card) => {
     api.deleteCard(cardId)
       .then((res) => {
-        card.deleteCardTemplate();
+        card.remove();
         confirmDeletionPopup.closePopup();
       })
       .catch((err) =>

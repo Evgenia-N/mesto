@@ -3,16 +3,15 @@ export default class Card {
     this._name = data.name;
     this._link = data.link;
     this._description = data.alt;
-    this._cardSelector = cardSelector;
-    this._api = api;
-    this._userId = userId;
     this._cardId = data._id;
     this._ownerId = data.owner._id;
     this._likes = data.likes;
-    this._cardSelector = cardSelector;
+    this._userId = userId;
     this._handleCardClick = handleCardClick;
     this._handleCardDelete = handleCardDelete;
     this._handleCardLike = handleCardLike;
+    this._cardSelector = cardSelector;
+    this._api = api;
   }
 
   _getTemplate() {
@@ -37,19 +36,15 @@ export default class Card {
     return this._cardElement;
   }
 
-  _deleteCardTemplate() {
-    this._cardElement.remove();
-  }
-
   _setEventListeners() {
-    this._cardElementLike.addEventListener('click', () => {
-      this.handleLikeClick(this);
-    });
-    this._cardElementDelete.addEventListener('click', () => {
-      this._handleCardDelete(this._cardId, this);
-    });
     this._cardElementPhoto.addEventListener('click', () => {
       this._handleCardClick(this._name, this._link, this._description);
+    });
+    this._cardElementDelete.addEventListener('click', () => {
+      this._handleCardDelete(this._cardId, this._cardElement);
+    });
+    this._cardElementLike.addEventListener('click', () => {
+      this.handleLikeClick(this._cardElement);
     });
   }
   
