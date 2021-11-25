@@ -19,6 +19,29 @@ export default class Api {
       .then(this._checkResponse);
   }
 
+  editUserInfo(data) {
+    return fetch(`${this._url}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: data.name,
+        about: data['about-self']
+      })
+    })
+      .then(this._checkResponse);
+  }
+
+  editProfilePic(data) {
+    return fetch(`${this._url}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: data.avatar,
+      })
+    })
+      .then(this._checkResponse);
+  }
+
   getCards() {
     return fetch(`${this._url}/cards`, {
       method: "GET",

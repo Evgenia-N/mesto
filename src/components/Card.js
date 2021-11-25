@@ -39,7 +39,6 @@ export default class Card {
 
   _deleteCardTemplate() {
     this._cardElement.remove();
-    /*this._element = null;*/
   }
 
   _setEventListeners() {
@@ -47,7 +46,7 @@ export default class Card {
       this.handleLikeClick(this);
     });
     this._cardElementDelete.addEventListener('click', () => {
-      this._handleCardDelete(this._cardId, this._card);
+      this._handleCardDelete(this._cardId, this);
     });
     this._cardElementPhoto.addEventListener('click', () => {
       this._handleCardClick(this._name, this._link, this._description);
@@ -62,7 +61,7 @@ export default class Card {
           this._likeCounter.textContent = data.likes.length;
         })
         .catch((err) => {
-          console.log(`Ошибка: ${err}`);
+          console.log(`${err}`);
         })
     } else {
       this._api.addLike(this._cardId)
@@ -71,7 +70,7 @@ export default class Card {
           this._likeCounter.textContent = data.likes.length;
         })
         .catch((err) => {
-          console.log(`Ошибка: ${err}`);
+          console.log(`${err}`);
       })
     }
   }
