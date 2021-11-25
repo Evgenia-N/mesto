@@ -53,6 +53,15 @@
         </form>
       </div>
     </div>
+    <div class="popup popup_type_delete-card">
+      <div class="popup__container popup__container_type_delete-card">
+        <form class="popup__form" name="delete-card" action="#" method="post" novalidate>
+          <button class="popup__close-button" type="submit" aria-label="Закрыть окно"></button>
+          <h2 class="popup__title ppopup__title_type_delete-card">Вы уверены?</h2>
+          <button class="popup__save-button" type="submit">Да</button>
+        </form>
+      </div>
+    </div>
     <div class="popup popup_type_fullscreen">
       <div class="popup__fullscreen">
         <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
@@ -63,10 +72,15 @@
     <template class="card-template">
       <div class="elements__card">
         <button class="elements__delete-button" type="button" aria-label="Удалить фото"></button>
-        <img class="elements__photo" src="#" alt="#" />
+        <div class = "elements__photo-container">
+          <img class="elements__photo" src="#" alt="#" />
+        </div>
         <div class="elements__container">
           <h2 class="elements__title"></h2>
-          <button class="elements__like-button" type="button" aria-label="Отметить понравившееся фото"></button>
+          <div class="elements__like-container">
+            <button class="elements__like-button" type="button" aria-label="Отметить понравившееся фото"></button>
+            <span class="elements__like-counter"></span>
+          </div>
         </div>
       </div>
     </template>

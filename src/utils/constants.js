@@ -14,6 +14,7 @@ export const urlInput = popupAddImage.querySelector(".popup__input_type_url");
 export const popupFullscreenImage = document.querySelector(".popup_type_fullscreen");
 export const popupImage = document.querySelector(".popup__image");
 export const popupCaption = document.querySelector(".popup__caption");
+export const popupDeleteCard = document.querySelector(".popup_type_delete-card");
 
 export const initialCards = [
   {
