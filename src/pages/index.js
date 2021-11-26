@@ -46,22 +46,15 @@ const api = new Api ({
   }
 })
 
-const getUserInfo = api.getUserInfo()
-  .then((userData) => {
+Promise.all([api.getUserInfo(), api.getCards()])
+  .then(([userData, cardsData]) => {
     userInfo.setUserInfo(userData);
     userId = userData._id;
+    cards.renderItems(cardsData);
   })
-  .catch((err) => {
+  .catch(err => {
     console.log(`${err}`);
-  })
-    
-const cardsFromServer = api.getCards()
-  .then(data => {
-    cards.renderItems(data);
-  })
-  .catch((err) => {
-    console.log(`${err}`);
-  })
+  });
   
 const cards = new Section(
   { renderer: (item) => {
